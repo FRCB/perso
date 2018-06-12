@@ -7,8 +7,8 @@
 h2 {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    letter-spacing: 0.2rem;
-    font-size:3em;
+    letter-spacing: 0.3rem;
+    font-size:3.2em;
     color: #ffffff;
     text-transform: uppercase;
 }
@@ -85,8 +85,8 @@ h2 {
 }
 
 .cat-box {
-    margin-top: 6%;
-    font-family: inherit;
+    margin-top: 5%;
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 0.2rem;
     font-size:2em;
     color: #ffffff;

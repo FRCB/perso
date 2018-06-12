@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Orbitron:700|Roboto:300');
 header {
     z-index: 0;
     display: flex;
@@ -11,10 +11,14 @@ header {
 
 #logo {
     padding-left: 3%;
+    padding-top: 1%;
     white-space: nowrap;
-    font-family: 'Pacifico', cursive;
-    font-size: 2.5em;
-    color: #1c3254;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    text-decoration: none;
 }
 
 .leftie {
@@ -25,7 +29,12 @@ header {
 .header-box {
     margin: 0 40px;
     font-family: 'Roboto', sans-serif;
+    font-size: 20px;
     text-transform: uppercase;
+}
+
+button {
+    border: none;
 }
 
 .search {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css'
 
 export default class Homepage extends Component {
@@ -7,18 +8,23 @@ export default class Homepage extends Component {
         return (
             <div >
                 <header>
-                    <h1 id = 'logo' >Night Row</h1>
+                    <Link to='/' id = 'logo'>
+                    <h1>Night Row</h1>
+                    </Link>
                     <div className = 'leftie' >
                         <input
                         className= 'header-box search'
                         type='text'
                         placeholder='Search'/>
-                        <h4 className= 'header-box'>
+                        <button className= 'header-box'>
                         Reservations
-                        </h4>
-                        <a className= 'header-box'
-                        href={process.env.REACT_APP_LOGIN}>
-                        <button>Login</button> 
+                        </button>
+                        <a
+                        href={process.env.REACT_APP_LOGIN}
+                        role='button'>
+                        <button className= 'header-box' >
+                            Login
+                        </button>
                         </a>
                     </div>
                 </header>
