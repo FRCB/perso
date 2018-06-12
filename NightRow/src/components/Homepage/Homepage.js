@@ -13,7 +13,7 @@ export default class Homepage extends Component {
                 <h2 className='promise'>
                     FIND AND RESERVE
                     <br/>
-                    <div class='verticalFlip'>
+                    <div className='verticalFlip'>
                         <span>A LIVE CONCERT</span>
                         <span>A ROOFTOP PARTY</span>
                         <span>A HAPPY-HOUR</span>

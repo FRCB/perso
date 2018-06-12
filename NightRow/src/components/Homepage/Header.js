@@ -16,14 +16,14 @@ export default class Homepage extends Component {
                         className= 'header-box search'
                         type='text'
                         placeholder='Search'/>
+                        <Link to='/reservation' >
                         <button className= 'header-box'>
                         Reservations
                         </button>
-                        <a
-                        href={process.env.REACT_APP_LOGIN}
-                        role='button'>
+                        </Link>
+                        <a href={process.env.REACT_APP_LOGIN}>
                         <button className= 'header-box' >
-                            Login
+                        Login
                         </button>
                         </a>
                     </div>
