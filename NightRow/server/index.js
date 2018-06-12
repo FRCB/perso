@@ -47,6 +47,7 @@ passport.use(new Auth0Strategy ({
     // done(null, profile);
     const db = app.get('db') // place where we store our db connexion /get value from db
     let {id, displayName, picture } = profile;
+    console.log(profile)
     db.find_user([id]).then(user => {
         if (user[0]) {
             done(null, user[0].id)
