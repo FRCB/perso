@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:300');
+header {
+    z-index: 0;
+    display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+    align-content: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid grey;
+}
+
+#logo {
+    padding-left: 3%;
+    white-space: nowrap;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    color: #1c3254;
+}
+
+.leftie {
+    display: flex;
+    margin-right: 3%;
+}
+
+.header-box {
+    margin: 0 40px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.search {
+    padding-right: 10%;
+}
