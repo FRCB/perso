@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import './Homepage.css'
 
 export default class Homepage extends Component {
@@ -7,8 +6,6 @@ export default class Homepage extends Component {
     render() {
         return (
             <div>
-
-                <Header />
 
                 <h2 className='promise'>
                     FIND AND RESERVE

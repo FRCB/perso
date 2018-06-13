@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import route from './route';
 import { withRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Header />
         {route}
       </div>
     );

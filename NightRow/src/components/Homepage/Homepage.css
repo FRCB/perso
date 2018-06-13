@@ -1,11 +1,8 @@
 .promise {
     background-image: url(https://i.imgur.com/kZn7d4b.jpg);
     padding: 10vh 0 10vh 0;
-    background-size: 100% auto;
-}
-
-h2 {
-    margin: 0;
+	background-size: 100% auto;
+	margin: 0;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.3rem;
     font-size:3.2em;
@@ -102,17 +99,17 @@ h2 {
 }
 
 .cat-1 {
-    background-image: url(./Outdoor.png);
+    background-image: url(./images/Outdoor.png);
 }
 
 .cat-2 {
-    background-image: url(./Afterwork.png);
+    background-image: url(./images/Afterwork.png);
 }
 
 .cat-3 {
-    background-image: url(./Clubbing.png);
+    background-image: url(./images/Clubbing.png);
 }
 
 .cat-4 {
-    background-image: url(./Live.png);
+    background-image: url(./images/Live.png);
 }

@@ -1,4 +1,4 @@
-require('dotenv').config({path:'./../.env'});
+require('dotenv').config(); 
 
 const express = require('express')
     , session = require('express-session')
@@ -74,12 +74,12 @@ passport.deserializeUser((primaryKeyid, done) => {
 // ENDPOINTS
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/login'
+    successRedirect: 'http://localhost:3000/#/reservations'
 }))
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect("http://locahost:3000")
+    res.redirect("http://localhost:3000/#/")
 })
 
 app.get('/auth/user', (req, res) => {
