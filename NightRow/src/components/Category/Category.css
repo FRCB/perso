@@ -1,0 +1,22 @@
+.category-flex {
+    display: flex; 
+ }
+ 
+ .event-block {
+     margin: 0;
+     background-color: white;
+     width: 50vw;
+     height: 86vh;
+ }
+ 
+ .event-box {
+     text-align: left;
+     color: grey;
+     padding: 0% 4%;
+     font-family: 'Orbitron', sans-serif;
+     font-size: 1.3em;
+     border-bottom: 1px solid grey;
+ }
+
+
+ 

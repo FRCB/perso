@@ -10,7 +10,7 @@ import Reservations from './components/Reservations/Reservations';
 export default (
   <Switch>
     <Route component={ Homepage } path='/' exact />
-    <Route component={ Category } path='/category/:name' />
+    <Route component={ Category } path='/category' />
     <Route component={ Event } path='/event/:id' />
     <Route component={ AddEvent } path='/add' />
     <Route component={ Reservations } path='/reservations' />

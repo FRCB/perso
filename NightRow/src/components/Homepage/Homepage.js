@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Homepage.css'
 
 export default class Homepage extends Component {
@@ -22,14 +23,26 @@ export default class Homepage extends Component {
 
         
                 <main className = 'cat-flex hover'>
+                    <Link to='/category'>
                     <button className = 'cat-box cat-1'>
-                        OUTDOOR</button>
+                        OUTDOOR
+                    </button>
+                    </Link>
+                    <Link to='/category'>
                     <button className = 'cat-box cat-2'>
-                        AFTERWORK</button>
+                        AFTERWORK
+                    </button>
+                    </Link>
+                    <Link to='/category'>
                     <button className = 'cat-box cat-3'>
-                        CLUBBING</button>
+                        CLUBBING
+                    </button>
+                    </Link>
+                    <Link to='/category'>
                     <button className = 'cat-box cat-4'>
-                        LIVE</button>
+                        LIVE
+                    </button>
+                    </Link>
                 </main>
 
             </div>
