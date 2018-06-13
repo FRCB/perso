@@ -31,16 +31,33 @@ export default class EventDetails extends Component {
             .then((res) => this.setState({ event: res.data }))
     }
 
+    deleteEvent(id) {
+        axios.delete(`/api/event/${id}`)
+            .then(this.getEvent())
+            .then((res) => res.redirect(`http://localhost:3000/#/${this.props.match.params.id}`))
+    }
+
     render() {
         return (
             <div>
-                <p>{this.state.event[0].event_title} </p>
+                <h1>{this.state.event[0].event_title} </h1>
+                <hr />
                 <p>{this.state.event[0].event_date}</p>
                 <p>{this.state.event[0].event_time}</p>
                 <p>{this.state.event[0].event_address}</p>
+                <hr />
                 <p>{this.state.event[0].event_about}</p>
+                <hr />
                 <p>{this.state.event[0].event_contact}</p>
                 <p>{this.state.event[0].event_price}</p>
+                <hr />
+                <button
+                    onClick={() => this.deletePost(this.state.event[0].event_id)}>
+                    Delete
+                </button>
+                <button>
+                    Edit
+                </button>
             </div>
         );
     }

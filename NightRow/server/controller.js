@@ -22,6 +22,15 @@ module.exports = {
                 console.log(err)
                 res.status(500).send(err);
             })
-    }
+    },
+
+    deletePost: (req, res) => {
+        const db = req.app.get('db');
+        const id = req.params.id;
+
+        db.delete_event([id])
+            .then(event => res.status(200).send(event))
+            .catch((err) => res.status(500).send(err))
+    },
 
 }

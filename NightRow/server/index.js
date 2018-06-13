@@ -73,7 +73,7 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect("http://localhost:3000/#/")
+    res.redirect('http://localhost:3000/#/')
 })
 
 app.get('/auth/user', (req, res) => {
@@ -86,6 +86,8 @@ app.get('/auth/user', (req, res) => {
 
 app.get('/api/category/:category', controller.getCategory);
 app.get('/api/event/:id', controller.getEvent);
+app.delete('/api/posts/:id', controller.deletePost);
+
 
 
 app.listen(SERVER_PORT, () => {
