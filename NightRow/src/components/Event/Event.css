@@ -18,3 +18,7 @@
     font-size: 1.1em;
     color: grey;
 }
+
+.detailedInfo {
+    display: none;
+}

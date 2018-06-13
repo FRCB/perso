@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Category.css';
-import { GoogleApiWrapper } from 'google-maps-react' 
+import { GoogleApiWrapper } from 'google-maps-react'
 import MapContainer from './../MapContainer/MapContainer'
 import axios from 'axios';
 import Event from './../Event/Event';
@@ -14,6 +14,7 @@ class Category extends Component {
         }
 
         this.getCategory = this.getCategory.bind(this)
+        this.deleteEvent = this.deleteEvent.bind(this)
     }
 
     componentDidMount() {
@@ -24,36 +25,47 @@ class Category extends Component {
         const body = {
             title: title,
             date: date,
-            hour: hour, 
+            hour: hour,
             price: price
         }
         axios.get(`/api/category/${this.props.match.params.category}`, body)
-        .then((res) => this.setState({events: res.data}))
+            .then((res) => this.setState({ events: res.data }))
+    }
+
+    deleteEvent(id) {
+        axios.delete(`/api/events/${id}`)
+            .then(this.getCategory())
     }
 
     render() {
         let mappedEvents = this.state.events.map((event, i) => {
 
             return (
-                <div key={i}>                 
-                    <Event
-                        event = { event }
-                        getCategory = {this.getCategory}
-                    />
+                <div>
+                    <div key={i}>
+                        <Event
+                            event={event}
+                            getCategory={this.getCategory}
+                            deleteEvent={this.deleteEvent}
+                        />
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
             )
         })
 
         return (
-            <div className = 'category-flex'>
-                <div className = 'event-block' >
-                    <div className = 'event-box'>
-                    { mappedEvents }
+            <div className='category-flex'>
+                <div className='event-block' >
+                    <div className='event-box'>
+                        {mappedEvents}
                     </div>
                 </div>
                 <div>
-                    <MapContainer 
-                    google={this.props.google} />
+                    <MapContainer
+                        google={this.props.google} />
                 </div>
             </div>
         )
@@ -61,4 +73,5 @@ class Category extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyACchz5l-d5fJ_RTwK8BuJhbqYdzhFD-5M'})(Category)
+    apiKey: 'AIzaSyACchz5l-d5fJ_RTwK8BuJhbqYdzhFD-5M'
+})(Category)
