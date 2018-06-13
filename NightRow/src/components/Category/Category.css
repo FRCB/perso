@@ -11,11 +11,9 @@
  
  .event-box {
      text-align: left;
-     color: grey;
      padding: 0% 4%;
-     font-family: 'Orbitron', sans-serif;
-     font-size: 1.3em;
      border-bottom: 1px solid grey;
+     height: 100px;
  }
 
 

@@ -5,6 +5,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
+    , controller = require('./controller')
 
     // -------------------------------------------------
 
@@ -89,6 +90,8 @@ app.get('/auth/user', (req, res) => {
         res.status(401).send('Nice try!')
     }
 })
+
+app.get('/api/category/:category', controller.getCategory);
 
 
 // -------------------------------------------------
