@@ -21,22 +21,35 @@ export default class AddEvent extends Component {
     }
 
     createEvent() {
-        let { category, title, date, time, address, about, contact, price } = this.props
-        let body = { category, title, date, time, address, about, contact, price }
+        let { category, title, date, time, address, about, contact, price } = this.state;
+        category = +category;
+        let body = { category, title, date, time, address, about, contact, price };
 
         axios.post(`/api/event`, body)
-            .then((res) => console.log(res.data))
+            .then(() => this.setState({
+                category: '',
+                title: '',
+                date: '',
+                time: '',
+                address: '',
+                about: '',
+                contact: '',
+                price: ''
+            }))
     }
 
     render() {
+
         return (
             <div>
                 <p>Category</p>
-                <select name='category'>
-                    <option value='outdoor'>Outdoor</option>
-                    <option value='afterwork'>Afterwork</option>
-                    <option value='clubbing'>Clubbing</option>
-                    <option value='live'>Live</option>
+                <select
+                    name='category'
+                    onChange={(e) => this.setState({ category: e.target.value })}>
+                    <option value='1'>Outdoor</option>
+                    <option value='2'>Afterwork</option>
+                    <option value='3'>Clubbing</option>
+                    <option value='4'>Live</option>
                 </select>
                 <br />
                 <p>Title</p>
@@ -47,13 +60,13 @@ export default class AddEvent extends Component {
                 <br />
                 <p>Date</p>
                 <input
-                    type="text"
+                    type="date"
                     placeholder='Date'
                     onChange={(e) => this.setState({ date: e.target.value })} />
                 <br />
                 <p>Time</p>
                 <input
-                    type="text"
+                    type="time"
                     placeholder='Time'
                     onChange={(e) => this.setState({ time: e.target.value })} />
                 <br />

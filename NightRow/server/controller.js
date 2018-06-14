@@ -18,7 +18,10 @@ module.exports = {
 
         db.create_event([category, title, date, time, address, about, contact, price])
             .then(event => res.status(200).send(event))
-            .catch(() => res.status(500).send())
+            .catch((err) => {
+                console.log(err)
+                res.status(500).send(err);
+            })
     },
 
     getEvent: (req, res) => {
@@ -28,7 +31,6 @@ module.exports = {
         db.get_event([id])
             .then(event => res.status(200).send(event))
             .catch((err) => {
-                console.log(err)
                 res.status(500).send(err);
             })
     },
