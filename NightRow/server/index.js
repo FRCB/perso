@@ -86,6 +86,7 @@ app.get('/auth/user', (req, res) => {
 
 app.get('/api/category/:category', controller.getCategory);
 app.get('/api/event/:id', controller.getEvent);
+app.get('/api/event/:id', controller.editEvent);
 app.delete('/api/posts/:id', controller.deletePost);
 
 
