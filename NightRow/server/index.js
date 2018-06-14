@@ -93,9 +93,11 @@ app.get('/api/category/:category', controller.getCategory);
 
 app.get('/api/event/:id', controller.getEvent);
 
+app.post('/api/event', controller.createEvent);
+
 app.put('/api/event/:id', controller.editEvent);
 
-app.delete('/api/posts/:id', controller.deletePost);
+app.delete('/api/posts/:id', controller.deleteEvent);
 
 
 

@@ -12,6 +12,15 @@ module.exports = {
             })
     },
 
+    createEvent: (req, res) => {
+        const db = req.app.get('db');
+        const { category, title, date, time, address, about, contact, price } = req.body
+
+        db.create_event([category, title, date, time, address, about, contact, price])
+            .then(event => res.status(200).send(event))
+            .catch(() => res.status(500).send())
+    },
+
     getEvent: (req, res) => {
         const db = req.app.get('db');
         const id = req.params.id;
@@ -38,7 +47,7 @@ module.exports = {
             })
     },
 
-    deletePost: (req, res) => {
+    deleteEvent: (req, res) => {
         const db = req.app.get('db');
         const id = req.params.id;
 

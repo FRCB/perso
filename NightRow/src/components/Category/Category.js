@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Category.css';
 import { GoogleApiWrapper } from 'google-maps-react'
-import MapContainer from './../MapContainer/MapContainer'
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import MapContainer from './../MapContainer/MapContainer';
 import Event from './../Event/Event';
+import axios from 'axios';
 
 class Category extends Component {
     constructor(props) {
@@ -61,13 +62,18 @@ class Category extends Component {
                 <div className='event-block' >
                     <div className='event-box'>
                         {mappedEvents}
+                        <Link to='/add'>
+                            <button>
+                                Add an Event
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div>
                     <MapContainer
                         google={this.props.google} />
                 </div>
-            </div>
+            </div >
         )
     }
 }
