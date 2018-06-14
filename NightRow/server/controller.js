@@ -31,6 +31,7 @@ module.exports = {
         db.get_event([id])
             .then(event => res.status(200).send(event))
             .catch((err) => {
+                console.log(err)
                 res.status(500).send(err);
             })
     },
@@ -55,7 +56,10 @@ module.exports = {
 
         db.delete_event([id])
             .then(event => res.status(200).send(event))
-            .catch((err) => res.status(500).send(err))
+            .catch((err) => {
+                console.log(err)
+                res.status(500).send(err);
+            })
     },
 
 }

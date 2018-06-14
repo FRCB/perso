@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class AddEvent extends Component {
     constructor(props) {
@@ -95,14 +95,14 @@ export default class AddEvent extends Component {
                     onChange={(e) => this.setState({ price: e.target.value })} />
                 <br />
                 <hr />
-
-                <button
-                    onClick={this.createEvent}>
-                    Complete
+                <Link to='/'>
+                    <button
+                        onClick={this.createEvent}>
+                        Complete
                 </button>
-
+                </Link>
                 <br />
-            </div >
+            </div>
         )
     }
 }
