@@ -5,6 +5,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
+    , bodyParser = require('body-parser')
     , controller = require('./controller')
 
 
@@ -30,9 +31,13 @@ app.use(session({
     saveUninitialized: true
 }))
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 passport.use(new Auth0Strategy({
     domain: DOMAIN,
@@ -85,8 +90,11 @@ app.get('/auth/user', (req, res) => {
 })
 
 app.get('/api/category/:category', controller.getCategory);
+
 app.get('/api/event/:id', controller.getEvent);
-app.get('/api/event/:id', controller.editEvent);
+
+app.put('/api/event/:id', controller.editEvent);
+
 app.delete('/api/posts/:id', controller.deletePost);
 
 

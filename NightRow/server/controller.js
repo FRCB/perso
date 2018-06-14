@@ -25,10 +25,12 @@ module.exports = {
     },
 
     editEvent: (req, res) => {
+        console.log(req.body)
         const db = req.app.get('db');
         const id = req.params.id;
+        const { title, date, time, address, about, contact, price } = req.body
 
-        db.get_event([id])
+        db.edit_event([title, date, time, address, about, contact, price, id])
             .then(event => res.status(200).send(event))
             .catch((err) => {
                 console.log(err)
