@@ -88,7 +88,6 @@ module.exports = {
     deleteReservation: (req, res) => {
         const db = req.app.get('db');
         const id = req.params.id;
-        console.log('id', id)
 
         db.delete_reservation([id])
             .then(event => res.status(200).send(event))
