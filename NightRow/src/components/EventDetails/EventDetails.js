@@ -20,7 +20,10 @@ export default class EventDetails extends Component {
         }
 
         this.getEvent = this.getEvent.bind(this)
+        this.toggleEdit = this.toggleEdit.bind(this)
+        this.editEvent = this.editEvent.bind(this)
         this.deleteEvent = this.deleteEvent.bind(this)
+        this.createReservation = this.createReservation.bind(this)
 
     }
 
@@ -106,6 +109,7 @@ export default class EventDetails extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <div>
@@ -164,7 +168,7 @@ export default class EventDetails extends Component {
                         {this.state.toggleBtn ? "Save" : "Edit"}
                     </button>
                 </div>
-            </div>
+            </div >
         );
     }
 }
