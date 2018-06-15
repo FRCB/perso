@@ -76,10 +76,8 @@ module.exports = {
 
     getReservations: (req, res) => {
         const db = req.app.get('db');
-        const id = req.params.id;
 
-        console.log('id', id)
-        db.get_reservations([id])
+        db.get_reservations([req.user.id])
             .then(reservation => res.status(200).send(reservation))
             .catch((err) => {
                 console.log(err)

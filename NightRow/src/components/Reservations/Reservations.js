@@ -24,7 +24,7 @@ class Reservations extends Component {
     }
 
     getReservations() {
-        axios.get(`/api/reservation/${this.props.user.id}`)
+        axios.get(`/api/reservation`)
             .then((res) => this.setState({ reservations: res.data }))
     }
 
@@ -38,13 +38,12 @@ class Reservations extends Component {
 
         let mappedReservations = this.state.reservations.map((reservation, i) => {
             return (
-                <div>
-                    <div key={i}>
-                        <Reservation
-                            reservation={reservation}
-                        />
-                    </div>
+                <div key={i}>
+                    <Reservation
+                        reservation={reservation}
+                    />
                 </div>
+
             )
         })
 

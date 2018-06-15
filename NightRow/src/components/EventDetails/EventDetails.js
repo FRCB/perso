@@ -104,7 +104,7 @@ export default class EventDetails extends Component {
         axios.post(`/api/reservation`, body)
             .then((res) => console.log(res.data))
             .then(() => {
-                this.props.history.push(`/reservations/${this.state.user.id}`)
+                this.props.history.push(`/reservations`)
             })
     }
 
