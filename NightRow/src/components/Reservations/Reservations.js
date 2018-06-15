@@ -20,11 +20,11 @@ class Reservations extends Component {
 
     componentDidMount() {
         this.props.getUser();
-        // this.getReservations();
+        this.getReservations();
     }
 
     getReservations() {
-        axios.get(`/api/reservation/${this.props.match.params.id}`)
+        axios.get(`/api/reservation/${this.props.user.id}`)
             .then((res) => this.setState({ reservations: res.data }))
     }
 
@@ -42,7 +42,6 @@ class Reservations extends Component {
                     <div key={i}>
                         <Reservation
                             reservation={reservation}
-
                         />
                     </div>
                 </div>
