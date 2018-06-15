@@ -32,7 +32,7 @@ export default function Reservation(props) {
                     </p>
                 </div>
                 <button
-                    onClick={() => props.deleteEvent(props.reservation.event_id)}>
+                    onClick={() => props.deleteReservation(props.reservation.reservation_id)}>
                     Delete
                     </button>
             </div>

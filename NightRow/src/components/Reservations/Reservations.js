@@ -15,6 +15,7 @@ class Reservations extends Component {
         }
 
         this.getReservations = this.getReservations.bind(this)
+        this.deleteReservation = this.deleteReservation.bind(this)
     }
 
     componentDidMount() {
@@ -88,4 +89,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, { getUser })(Reservations);
 
-                    /* deleteReservation={this.deleteReservation} */
