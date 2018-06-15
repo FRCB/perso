@@ -62,4 +62,16 @@ module.exports = {
             })
     },
 
+    createReservation: (req, res) => {
+        const db = req.app.get('db');
+        const { user_id, event_id } = req.body
+
+        db.create_reservation([user_id, event_id])
+            .then(reservation => res.status(200).send(reservation))
+            .catch((err) => {
+                console.log(err)
+                res.status(500).send(err);
+            })
+    },
+
 }

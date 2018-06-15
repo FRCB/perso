@@ -95,9 +95,11 @@ app.get('/api/event/:id', controller.getEvent);
 
 app.post('/api/event', controller.createEvent);
 
+app.post('/api/reservation', controller.createReservation);
+
 app.put('/api/event/:id', controller.editEvent);
 
-app.delete('/api/posts/:id', controller.deleteEvent);
+app.delete('/api/event/:id', controller.deleteEvent);
 
 
 

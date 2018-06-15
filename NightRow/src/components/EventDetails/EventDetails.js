@@ -7,7 +7,9 @@ export default class EventDetails extends Component {
         super(props);
 
         this.state = {
+            user: {},
             toggleBtn: false,
+            eventId: 0,
             editTitle: '',
             editDate: '',
             editTime: '',
@@ -24,6 +26,7 @@ export default class EventDetails extends Component {
 
     componentDidMount() {
         this.getEvent();
+        axios.get(`/auth/user`).then((res) => this.setState({ user: res.data }))
     }
 
     getEvent(title, date, time, address, about, contact, price) {
@@ -38,6 +41,8 @@ export default class EventDetails extends Component {
         }
         axios.get(`/api/event/${this.props.match.params.id}`, body)
             .then((res) => this.setState({
+                events: res.data,
+                eventId: res.data[0].event_id,
                 editTitle: res.data[0].event_title,
                 editDate: res.data[0].event_date,
                 editTime: res.data[0].event_time,
@@ -82,8 +87,22 @@ export default class EventDetails extends Component {
 
     deleteEvent(id) {
         axios.delete(`/api/event/${id}`)
-            .then(this.getEvent())
-            .then((res) => res.redirect(`http://localhost:3000/#/${this.props.match.params.id}`))
+            .then(() => {
+                this.props.history.push('/')
+            })
+    }
+
+    createReservation() {
+        const body = {
+            user_id: this.state.user.id,
+            event_id: this.state.eventId
+        }
+
+        axios.post(`/api/reservation`, body)
+            .then((res) => console.log(res.data))
+            .then(() => {
+                this.props.history.push(`/reservations/${this.state.user.id}`)
+            })
     }
 
     render() {
@@ -132,7 +151,12 @@ export default class EventDetails extends Component {
                     }
                     <hr />
                     <button
-                        onClick={() => this.deletePost(this.state.event[0].event_id)}>
+                        onClick={this.createReservation}>
+                        Reserve
+                    </button>
+                    <br />
+                    <button
+                        onClick={() => this.deleteEvent(this.state.eventId)}>
                         Delete
                     </button>
                     <button
