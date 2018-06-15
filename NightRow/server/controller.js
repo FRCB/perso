@@ -74,4 +74,16 @@ module.exports = {
             })
     },
 
+    // getReservations: (req, res) => {
+    //     const db = req.app.get('db');
+    //     const id = req.params.id;
+
+    //     db.get_reservations([id])
+    //         .then(reservation => res.status(200).send(reservation))
+    //         .catch((err) => {
+    //             console.log(err)
+    //             res.status(500).send(err);
+    //         })
+    // },
+
 }

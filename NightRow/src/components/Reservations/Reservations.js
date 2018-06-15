@@ -1,51 +1,56 @@
 import React, { Component } from "react";
 import Homepage from "./../Homepage/Homepage";
-import Reservation from "./../Reservation/Reservation";
+// import Reservation from "./../Reservation/Reservation";
 import { getUser } from './../../redux/reducer';
 import { connect } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 import './Reservations.css';
 
 class Reservations extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
-            reservations: [],
-            reservationId: 0
-        }
+    //     this.state = {
+    //         reservations: [],
+    //         reservationId: 0
+    //     }
 
-        this.getReservations = this.getReservations.bind(this)
-    }
+    //     this.getReservations = this.getReservations.bind(this)
+    // }
 
     componentDidMount() {
         this.props.getUser();
-        this.getReservations();
+        // this.getReservations();
     }
 
-    getReservations() {
-        axios.get(`/api/reservation/${this.props.match.params.id}`)
-            .then(res => console.log(res.data))
-            .then((res) => this.setState({ reservations: res.data }))
-    }
+    // getReservations() {
+    //     axios.get(`/api/reservation/${this.props.match.params.id}`)
+    //         .then(res => console.log(res.data))
+    //         .then((res) => this.setState({ reservations: res.data }))
+    // }
+
+    // deleteReservation(id) {
+    //     axios.delete(`/api/reservation/${id}`)
+    //         .then(this.getReservations())
+    // }
 
     render() {
         let { user_name, picture } = this.props.user;
 
-        let mappedReservations = this.state.reservations.map((reservation, i) => {
-            return (
-                <div>
-                    <div key={i}>
-                        <Reservation
-                            reservation={reservation}
-                        />
-                    </div>
-                </div>
-            )
-        })
+        // let mappedReservations = this.state.reservations.map((reservation, i) => {
+        //     return (
+        //         <div>
+        //             <div key={i}>
+        //                 <Reservation
+        //                     reservation={reservation}
+
+        //                 />
+        //             </div>
+        //         </div>
+        //     )
+        // })
 
         return (
-
             <div>
                 {
                     user_name ? (
@@ -60,16 +65,16 @@ class Reservations extends Component {
                                     src={picture} alt="profile pic"
                                 />
                             </div>
-                            <div className='right-block'>
+                            {/* <div className='right-block'>
                                 <div className='reserved-event'>
                                     {mappedReservations}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     ) : (
                             <div>
                                 <p className='alert'>Please, login in order to be redirected to your reservations</p>.
-                <Homepage />
+                                <Homepage />
                             </div>
                         )
                 }
@@ -85,3 +90,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { getUser })(Reservations);
+
+                    /* deleteReservation={this.deleteReservation} */

@@ -101,6 +101,8 @@ app.put('/api/event/:id', controller.editEvent);
 
 app.delete('/api/event/:id', controller.deleteEvent);
 
+// app.get('/api/reservation/:id', controller.getReservations);
+
 
 
 app.listen(SERVER_PORT, () => {
