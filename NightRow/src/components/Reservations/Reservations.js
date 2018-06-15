@@ -1,58 +1,87 @@
 import React, { Component } from "react";
 import Homepage from "./../Homepage/Homepage";
+import Reservation from "./../Reservation/Reservation";
 import { getUser } from './../../redux/reducer';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import './Reservations.css';
 
 class Reservations extends Component {
+    constructor(props) {
+        super(props);
 
-    componentDidMount() {
-    this.props.getUser();
+        this.state = {
+            reservations: [],
+            reservationId: 0
+        }
+
+        this.getReservations = this.getReservations.bind(this)
     }
 
-  render() {
-    let { user_name, picture } = this.props.user;
+    componentDidMount() {
+        this.props.getUser();
+        this.getReservations();
+    }
 
-    return (
-        
-        <div>
-            {user_name ? (
-            <div className = 'reservation-flex'>
-            <div className = 'left-block'>
-                <div className = 'reservation-title'>
-                    <h1>{user_name}'s</h1>
-                    <h1>Reservations</h1>
+    getReservations() {
+        axios.get(`/api/reservation/${this.props.match.params.id}`)
+            .then(res => console.log(res.data))
+            .then((res) => this.setState({ reservations: res.data }))
+    }
+
+    render() {
+        let { user_name, picture } = this.props.user;
+
+        let mappedReservations = this.state.reservations.map((reservation, i) => {
+            return (
+                <div>
+                    <div key={i}>
+                        <Reservation
+                            reservation={reservation}
+                        />
+                    </div>
                 </div>
-                <img 
-                    className = 'profile-image' 
-                    src={picture} alt="profile pic"
-                />
-            </div> 
-            <div className = 'right-block'>
-                <div className = 'reserved-event'>
-                    <p>Event : </p>
-                    <p>Date :</p>
-                    <p>Time : </p>
-                    <p>Address : </p>
-                    <p>Price : </p>
-                </div>
-            </div>
-            </div>
-            ) : (
+            )
+        })
+
+        return (
+
             <div>
-                <p className = 'alert'>Please, login in order to be redirected to your reservations</p>.
-                <Homepage/>
+                {
+                    user_name ? (
+                        <div className='reservation-flex' >
+                            <div className='left-block'>
+                                <div className='reservation-title'>
+                                    <h1>{user_name}'s</h1>
+                                    <h1>Reservations</h1>
+                                </div>
+                                <img
+                                    className='profile-image'
+                                    src={picture} alt="profile pic"
+                                />
+                            </div>
+                            <div className='right-block'>
+                                <div className='reserved-event'>
+                                    {mappedReservations}
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                            <div>
+                                <p className='alert'>Please, login in order to be redirected to your reservations</p>.
+                <Homepage />
+                            </div>
+                        )
+                }
             </div>
-            )} 
-        </div>
-    );
-  }
+        );
+    }
 }
 
 function mapStateToProps(state) {
     return {
-      user: state.user
+        user: state.user
     };
-  }
-  
-  export default connect(mapStateToProps, { getUser })(Reservations);
+}
+
+export default connect(mapStateToProps, { getUser })(Reservations);
