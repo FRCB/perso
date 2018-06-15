@@ -103,6 +103,7 @@ app.delete('/api/event/:id', controller.deleteEvent);
 
 app.get('/api/reservation', controller.getReservations);
 
+app.delete('/api/reservation/:id', controller.deleteReservation);
 
 
 app.listen(SERVER_PORT, () => {

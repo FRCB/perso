@@ -85,4 +85,16 @@ module.exports = {
             })
     },
 
+    deleteReservation: (req, res) => {
+        const db = req.app.get('db');
+        const id = req.params.id;
+
+        db.delete_reservation([id])
+            .then(event => res.status(200).send(event))
+            .catch((err) => {
+                console.log(err)
+                res.status(500).send(err);
+            })
+    },
+
 }

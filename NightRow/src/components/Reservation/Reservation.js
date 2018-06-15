@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Reservation.css'
+import './Reservation.css'
 
 export default function Reservation(props) {
 
@@ -31,10 +31,10 @@ export default function Reservation(props) {
                     <p>{props.reservation.event_price} </p>
                     </p>
                 </div>
-                {/* <button
-                    onClick={() => props.deleteEvent(this.state.eventId)}>
+                <button
+                    onClick={() => props.deleteEvent(props.reservation.event_id)}>
                     Delete
-                    </button> */}
+                    </button>
             </div>
         </div>
     );

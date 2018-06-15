@@ -12,7 +12,6 @@ class Reservations extends Component {
 
         this.state = {
             reservations: [],
-            //         reservationId: 0
         }
 
         this.getReservations = this.getReservations.bind(this)
@@ -28,10 +27,10 @@ class Reservations extends Component {
             .then((res) => this.setState({ reservations: res.data }))
     }
 
-    // deleteReservation(id) {
-    //     axios.delete(`/api/reservation/${id}`)
-    //         .then(this.getReservations())
-    // }
+    deleteReservation(id) {
+        axios.delete(`/api/reservation/${id}`)
+            .then(this.getReservations())
+    }
 
     render() {
         let { user_name, picture } = this.props.user;
@@ -41,6 +40,7 @@ class Reservations extends Component {
                 <div key={i}>
                     <Reservation
                         reservation={reservation}
+                        deleteReservation={this.deleteReservation}
                     />
                 </div>
 
